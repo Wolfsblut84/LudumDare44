@@ -1,6 +1,14 @@
+![banner](https://img.itch.zone/aW1nLzE2OTQ5ODYucG5n/original/ngaOB6.png "banner")
+
 # LudumDare44 (April 26th-29th)
-## This repository contains a game made for [Ludum Dare 44](https://ldjam.com/events/ludum-dare/44/$144222). The Theme was "".
-## Let's play!	
+[Our Project Page on Ludum Dare](https://ldjam.com/events/ludum-dare/44/$144222). 
+
+
+This project was created for [Ludum Dare 44](https://ldjam.com/events/ludum-dare/44/)
+
+The Theme was: ** 
+
+Let's play!	
 
 ### Description
 The game is a game.
@@ -22,5 +30,5 @@ To control the game use WASD or UP, DOWN, LEFT, RIGHT.
 [TaskCoach](https://www.taskcoach.org/)
 
 
-### Development Team
+### developed by the Team
 Jerry, Jessica, Sebastian, Mario, Manuel and Tino
