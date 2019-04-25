@@ -16,19 +16,24 @@ The game is a game.
 ### Controls
 To control the game use WASD or UP, DOWN, LEFT, RIGHT.
 
+---
+
 ### Development Tools
-[Unity 2019.1 Personal](https://store.unity.com/de/download)
+* [Unity 2019.1 Personal](https://store.unity.com/de/download)
 
-[Microsoft Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/de/vs/community/)
+* [Microsoft Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/de/vs/community/)
 
-[Blender 2.8 beta](https://builder.blender.org/download/)
+* [Blender 2.8 beta](https://builder.blender.org/download/)
 
-[Gimp 2.10.10](https://www.gimp.org/downloads/)
+* [Gimp 2.10.10](https://www.gimp.org/downloads/)
 
-[Bosca Ceoil](https://boscaceoil.net/downloads.html)
+* [Bosca Ceoil](https://boscaceoil.net/downloads.html)
 
-[TaskCoach](https://www.taskcoach.org/)
+* [TaskCoach](https://www.taskcoach.org/)
+
 
 
 ### developed by the Team
+```
 Jerry, Jessica, Sebastian, Mario, Manuel and Tino
+```
