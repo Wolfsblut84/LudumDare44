@@ -2,49 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 10f;
-    private Rigidbody rb;
-    public bool isGrounded;
-    public float maxJumpHeight = 2f;
+    public float Speed = 5f;
+    public float JumpHeight = 2f;
+    public float GroundDistance = 0.2f;
+    public float DashDistance = 5f;
+    public LayerMask Ground;
 
+    private Rigidbody _body;
+    private Vector3 _inputs = Vector3.zero;
+    private bool _isGrounded = true;
+    private Transform _groundChecker;
 
-    // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        _body = GetComponent<Rigidbody>();
+        _groundChecker = transform.GetChild(0);
     }
 
-    // Update is called once per frame
     void Update()
     {
-
-    }
-
-    void OnCollisionStay()
-    {
-        isGrounded = true;
-    }
-
-    void FixedUpdate()
-    {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        //float moveVertical = Input.GetAxis("Vertical");
-        float jump = Input.GetAxis("Jump");
-
-        //rb.mass = 1;
+        _isGrounded = Physics.CheckSphere(_groundChecker.position, GroundDistance, Ground, QueryTriggerInteraction.Ignore);
 
 
+        _inputs = Vector3.zero;
+        _inputs.x = Input.GetAxis("Horizontal");
+        _inputs.z = Input.GetAxis("Vertical");
+        if (_inputs != Vector3.zero)
+            transform.forward = _inputs;
 
-        Vector3 movement = new Vector3(moveHorizontal, jump, 0);
-
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetButtonDown("Jump") && _isGrounded)
         {
-            rb.AddForce(movement * speed, ForceMode.Impulse);
-            isGrounded = false;
-
+            _body.AddForce(Vector3.up * Mathf.Sqrt(JumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
+        }
+        if (Input.GetButtonDown("Dash"))
+        {
+            Vector3 dashVelocity = Vector3.Scale(transform.forward, DashDistance * new Vector3((Mathf.Log(1f / (Time.deltaTime * _body.drag + 1)) / -Time.deltaTime), 0, (Mathf.Log(1f / (Time.deltaTime * _body.drag + 1)) / -Time.deltaTime)));
+            _body.AddForce(dashVelocity, ForceMode.VelocityChange);
         }
     }
 
+
+    void FixedUpdate()
+    {
+        _body.MovePosition(_body.position + _inputs * Speed * Time.fixedDeltaTime);
+    }
 }
