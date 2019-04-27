@@ -31,7 +31,7 @@ To control the game use WASD or UP, DOWN, LEFT, RIGHT.
 
 * [TaskCoach](https://www.taskcoach.org/)
 
-[![Watch the video]]https://youtu.be/vt5fpE0bzSY)
+[![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://youtu.be/T-D1KVIuvjA)
 
 ### developed by the Team
 ```
