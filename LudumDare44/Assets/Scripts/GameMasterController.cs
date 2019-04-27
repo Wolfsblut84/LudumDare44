@@ -24,9 +24,10 @@ public class GameMasterController : MonoBehaviour
 
     public void SetBotInGoal(int value)
     {
-        BotsInGoal += value;
+
         this.particle.SetActive(true);
         this.particle.gameObject.GetComponent<ParticleSystem>().Play();
+        BotsInGoal += value;
     }
 
 

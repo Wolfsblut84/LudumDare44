@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
     public int playerDamage;
 
     private float timer = 1.0f;
-    public float waitingTime = 0.2f;
+    public float waitingTime;
 
     // Lebenspunkte vom Gegner
     public int enemyLife;
@@ -36,8 +36,9 @@ public class EnemyController : MonoBehaviour
             if (timer > waitingTime)
             {
                 //Action
-                Shoot(target.transform.position);
+                Shoot(target.transform.position + new Vector3(Random.Range(-2 , 2) , Random.Range(-2, 2) , Random.Range(-2, 2)));
                 timer = 0;
+
             }
         }
 

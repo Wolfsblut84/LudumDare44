@@ -20,6 +20,10 @@ public class ProjectileController : MonoBehaviour
     {
         if(other.gameObject.name != "Enemy Cylinder")
         {
+            if (other.gameObject.name == "Player Capsule")
+            {
+                Target.GetComponent<PlayerController>().playerHealth--;
+            }
             Destroy(this.gameObject, 1);
         }
     }
