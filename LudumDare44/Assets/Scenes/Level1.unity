@@ -13070,7 +13070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BotCounter: 0
-  BotsInGoal: 0
+  particle: {fileID: 0}
 --- !u!4 &838335728
 Transform:
   m_ObjectHideFlags: 0
@@ -15693,6 +15693,11 @@ PrefabInstance:
       propertyPath: enemyLife
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7266394332753331084, guid: e6e7a6e21120f144989e7862377a09cc,
+        type: 3}
+      propertyPath: waitingTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2298227409087449420, guid: e6e7a6e21120f144989e7862377a09cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15746,6 +15751,11 @@ PrefabInstance:
     - target: {fileID: 2298227409087449420, guid: e6e7a6e21120f144989e7862377a09cc,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4554398940556542504, guid: e6e7a6e21120f144989e7862377a09cc,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -31246,7 +31256,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2152
+  m_Name: pb_Mesh-2200
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

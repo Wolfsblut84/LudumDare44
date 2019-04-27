@@ -15,6 +15,9 @@ public class EnemyController : MonoBehaviour
     // Punkte die dem Spieler abgezogen werden
     public int playerDamage;
 
+    private float timer = 1.0f;
+    public float waitingTime = 0.2f;
+
     // Lebenspunkte vom Gegner
     public int enemyLife;
 
@@ -29,7 +32,13 @@ public class EnemyController : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, target.transform.position) <= 5)
         {
-            Shoot(target.transform.position);
+            timer += Time.deltaTime;
+            if (timer > waitingTime)
+            {
+                //Action
+                Shoot(target.transform.position);
+                timer = 0;
+            }
         }
 
     }
