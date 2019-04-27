@@ -14,7 +14,7 @@ public class ButtonBehaviour : MonoBehaviour {
 
 	void Start()
 	{
-		Physics.IgnoreCollision (transform.parent.GetComponent<Collider>(), GetComponent<Collider>());
+		//Physics.IgnoreCollision (transform.parent.GetComponent<Collider>(), GetComponent<Collider>());
 	}
 
 
