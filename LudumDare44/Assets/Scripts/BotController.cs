@@ -11,17 +11,12 @@ public class BotController : MonoBehaviour
     private float minDistance = 2f;
     private float maxDistance = 10f;
     private float moveSpeed = 5f;
-
     private bool doNotCollect = false;
   
-
-
     void Start()
     {
-        moveSpeed = target.GetComponent<PlayerController>().Speed;
-        
+        moveSpeed = target.GetComponent<PlayerController>().Speed; 
     }
-
 
 
     private void OnCollisionEnter(Collision other)
@@ -36,8 +31,6 @@ public class BotController : MonoBehaviour
             this.isCollected = false;
             this.doNotCollect = true;
         }
-
-
     }
 
 
@@ -52,12 +45,7 @@ public class BotController : MonoBehaviour
             {
                 //this.transform.position += transform.forward * moveSpeed * Time.deltaTime;
                 this.transform.position = Vector3.Lerp(this.transform.position, target.transform.position + new Vector3(0,0.1f,0), moveSpeed * Time.deltaTime);
-
             }
-
-
-            
-
         }
 
     }

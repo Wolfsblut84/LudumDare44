@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
         {
             this.Speed = 10;
         }
+
         if (Input.GetButtonUp("Shift"))
         {
             this.Speed = 5;
