@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody _body;
     private Vector3 _inputs = Vector3.zero;
-    private bool _isGrounded = true;
+    public bool _isGrounded;
     private Transform _groundChecker;
 
     void Start()
@@ -22,9 +22,16 @@ public class PlayerController : MonoBehaviour
         _groundChecker = transform.GetChild(0);
     }
 
+
+
+    void OnCollisionStay()
+    {
+        _isGrounded = true;
+    }
+
     void Update()
     {
-        _isGrounded = Physics.CheckSphere(_groundChecker.position, GroundDistance, Ground, QueryTriggerInteraction.Ignore);
+        //_isGrounded = Physics.CheckSphere(_groundChecker.position, GroundDistance, Ground, QueryTriggerInteraction.Ignore);
 
 
         _inputs = Vector3.zero;
@@ -36,6 +43,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && _isGrounded)
         {
             _body.AddForce(Vector3.up * Mathf.Sqrt(JumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
+            _isGrounded = false;
         }
         if (Input.GetButtonDown("Dash"))
         {
