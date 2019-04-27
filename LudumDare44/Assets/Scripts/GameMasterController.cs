@@ -6,8 +6,8 @@ public class GameMasterController : MonoBehaviour
 {
     // Attribute für Bots
     public int BotCounter;
-    public int BotsInGoal;
-
+    private int BotsInGoal;
+    public GameObject particle;
 
 
     // Start is called before the first frame update
@@ -19,5 +19,19 @@ public class GameMasterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+
+    public void SetBotInGoal(int value)
+    {
+        BotsInGoal += value;
+        this.particle.SetActive(true);
+        this.particle.gameObject.GetComponent<ParticleSystem>().Play();
+    }
+
+
+    public int GetBotInGoal()
+    {
+        return this.BotsInGoal;
     }
 }

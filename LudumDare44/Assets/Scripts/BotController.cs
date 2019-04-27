@@ -12,6 +12,8 @@ public class BotController : MonoBehaviour
     private float maxDistance = 5f;
     private float moveSpeed = 8f;
 
+
+
     // wofür war das
     private int myCount = 1;
 
@@ -24,7 +26,6 @@ public class BotController : MonoBehaviour
     void Start()
     {
         moveSpeed = target.GetComponent<PlayerController>().Speed;
-
     }
 
 
@@ -47,12 +48,14 @@ public class BotController : MonoBehaviour
         // Wenn Bots im Ziel sind
         else if (other.gameObject.name.Equals("Goal"))
         {
-            this.isCollected = false;
+           
             this.isInGoal = true;
             masterObject.gameObject.GetComponent<GameMasterController>().BotCounter -= 1;
-            masterObject.gameObject.GetComponent<GameMasterController>().BotsInGoal += 1;
+            masterObject.gameObject.GetComponent<GameMasterController>().SetBotInGoal(1);
+            this.isCollected = false;
 
-            if (masterObject.gameObject.GetComponent<GameMasterController>().BotsInGoal == 4)
+
+            if (masterObject.gameObject.GetComponent<GameMasterController>().GetBotInGoal() == 4)
             {
                
             }
