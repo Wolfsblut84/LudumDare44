@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 inputs = Vector3.zero;
     public bool isGrounded;
 
+    public int playerHealth;
+
 
     void Start()
     {
