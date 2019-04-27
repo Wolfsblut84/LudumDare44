@@ -11,29 +11,42 @@ public class BotController : MonoBehaviour
     private float minDistance = 2f;
     private float maxDistance = 10f;
     private float moveSpeed = 5f;
-    
+
+    private bool doNotCollect = false;
+  
+
 
     void Start()
     {
         moveSpeed = target.GetComponent<PlayerController>().Speed;
+        
     }
+
+
 
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.name.Contains("Player Capsule"))
         {
-            this.isCollected = true;
+           this.isCollected = true;
         }
+
+        if (other.gameObject.name.Contains("Goal"))
+        {
+            this.isCollected = false;
+            this.doNotCollect = true;
+        }
+
+
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (isCollected)
+        if (isCollected && doNotCollect == false)
         {
-            
-            //his.transform.position = new Vector3(transform.position.x,target.transform.position.y,transform.position.z);
+            //this.transform.position = new Vector3(transform.position.x,target.transform.position.y,transform.position.z);
 
             if (Vector3.Distance(transform.position, target.transform.position) >= minDistance && Vector3.Distance(transform.position, target.transform.position) <= maxDistance)
             {
@@ -43,11 +56,9 @@ public class BotController : MonoBehaviour
             }
 
 
+            
+
         }
-        
-
-
-
 
     }
 }
