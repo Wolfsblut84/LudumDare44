@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     public bool isGrounded;
     public float maxJumpHeight = 2f;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnCollisionStay()
@@ -36,17 +36,15 @@ public class PlayerController : MonoBehaviour
         //rb.mass = 1;
 
 
-       
+
         Vector3 movement = new Vector3(moveHorizontal, jump, 0);
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(movement * speed, ForceMode.Impulse);
-            
             isGrounded = false;
-            
+
         }
     }
 
 }
-
