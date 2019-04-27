@@ -6,6 +6,8 @@ public class GameMasterController : MonoBehaviour
 {
     public int BotCounter;
 
+    public int BotsInGoal;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +17,5 @@ public class GameMasterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 }
