@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    public float speed = 10f;
     private Rigidbody rb;
-
-
+    public bool isGrounded;
+    public float maxJumpHeight = 2f;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -21,13 +22,31 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    void OnCollisionStay()
+    {
+        isGrounded = true;
+    }
+
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        //float moveVertical = Input.GetAxis("Vertical");
+        float jump = Input.GetAxis("Jump");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        //rb.mass = 1;
 
-        rb.AddForce(movement * speed);
+
+       
+        Vector3 movement = new Vector3(moveHorizontal, jump, 0);
+
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            rb.AddForce(movement * speed, ForceMode.Impulse);
+            
+            isGrounded = false;
+            
+        }
     }
+
 }
+
