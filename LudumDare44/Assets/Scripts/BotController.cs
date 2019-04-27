@@ -12,6 +12,7 @@ public class BotController : MonoBehaviour
     private float maxDistance = 5f;
     private float moveSpeed = 8f;
 
+    // wofür war das
     private int myCount = 1;
 
     private bool isInGoal = false;
@@ -32,12 +33,18 @@ public class BotController : MonoBehaviour
     {
         int botCounter = masterObject.gameObject.GetComponent<GameMasterController>().BotCounter;
 
+        // Bots sammeln
         if (other.gameObject.name.Contains("Player Capsule") && botCounter < 2 && isCollected == false)
         {
             this.isCollected = true;
             masterObject.gameObject.GetComponent<GameMasterController>().BotCounter += 1;
             myCount = masterObject.gameObject.GetComponent<GameMasterController>().BotCounter;
+
+            // Damit man die wieder anpacken kann wenn 2 im Ziel sind
+            botCounter -= botCounter ;
         }
+
+        // Wenn Bots im Ziel sind
         else if (other.gameObject.name.Equals("Goal"))
         {
             this.isCollected = false;
@@ -47,31 +54,29 @@ public class BotController : MonoBehaviour
 
             if (masterObject.gameObject.GetComponent<GameMasterController>().BotsInGoal == 4)
             {
-
+               
             }
         }
-
-
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        // Bots einsammeln
         if (isCollected && isInGoal == false)
         {
-            //this.transform.position = new Vector3(transform.position.x,target.transform.position.y,transform.position.z);
-
             if (Vector3.Distance(transform.position, target.transform.position) >= minDistance + myCount * 0.8f && Vector3.Distance(transform.position, target.transform.position) <= maxDistance)
             {
-                //this.transform.position += transform.forward * moveSpeed * Time.deltaTime;
                 this.transform.position = Vector3.Lerp(this.transform.position, target.transform.position + new Vector3(0, 0.1f, 0), moveSpeed * Time.deltaTime);
-
             }
+        }
 
-
-
-
+        // Bots PArken
+        if (Input.GetButtonDown("E"))
+        {
+            this.isCollected = false;
+            this.masterObject.gameObject.GetComponent<GameMasterController>().BotCounter = 0;
         }
 
     }

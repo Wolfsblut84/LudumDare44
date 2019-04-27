@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    // Kamera Ziel festlegen
     public GameObject target;
-    // Start is called before the first frame update
 
+    
+    // Start is called before the first frame update
 
     void Start()
     {
