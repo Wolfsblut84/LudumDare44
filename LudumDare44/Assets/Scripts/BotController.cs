@@ -144,7 +144,7 @@ public class BotController : MonoBehaviour
                     }
 
                     // Wenn Bot stehen bleibt abziehen
-                    else if (Vector3.Distance(transform.position, target.transform.position) > maxDistance)
+                    else if (Vector3.Distance(transform.position, target.transform.position) > maxDistance )
                     {
 
                         this.isCollected = false;
