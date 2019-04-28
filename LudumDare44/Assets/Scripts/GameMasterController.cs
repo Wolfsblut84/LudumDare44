@@ -8,18 +8,24 @@ public class GameMasterController : MonoBehaviour
     public int BotCounter;
     private int BotsInGoal;
     public GameObject particle;
-
+    public GameObject GoalText;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        GoalText.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (BotsInGoal == 4)
+        {
+            GoalText.SetActive(true);
+        }
+
     }
 
 
