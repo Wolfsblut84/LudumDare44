@@ -28,10 +28,10 @@ public class GameMasterController : MonoBehaviour
             //GoalText.SetActive(true);
         }
 
-        //if (Input.GetButtonDown("Start Game") && gameObject.Equals("Start"))
-        //{
-        //    startGame = true;
-        //}
+        if (Input.GetButtonDown("Start Game") )
+        {
+            startGame = true;
+        }
     }
 
 
