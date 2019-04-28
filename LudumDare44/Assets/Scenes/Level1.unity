@@ -18795,6 +18795,7 @@ GameObject:
   - component: {fileID: 1358031426}
   - component: {fileID: 1358031425}
   - component: {fileID: 1358031424}
+  - component: {fileID: 1358031428}
   m_Layer: 0
   m_Name: WaterCube
   m_TagString: Untagged
@@ -18868,12 +18869,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358031423}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: -39, z: 2}
+  m_LocalPosition: {x: 6, y: -40, z: 2}
   m_LocalScale: {x: 100, y: 75, z: 30}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1358031428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358031423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e2ed2c7c46641489bbd871cae6f6cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeOffset: 5
+  MoveTimeDelta: 0.1
+  Speed: 2
+  isPaused: 0
 --- !u!1 &1363220081
 GameObject:
   m_ObjectHideFlags: 0
