@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -50,11 +51,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnDestroy()
     {
-        Instantiate(explosion, transform.position, Quaternion.identity);
-        if (gameOver != null)
-        {
-            gameOver.SetActive(true);
-        }
     }
 
     void Update()
@@ -101,11 +97,20 @@ public class PlayerController : MonoBehaviour
         if (playerHealth <= 0 || this.transform.position.y < 0)
         {
             // Player Tot
-            Destroy(this.gameObject);
+            Explode();
         }
 
     }
 
+    private void Explode()
+    {
+        Instantiate(explosion, transform.position, Quaternion.identity);
+        if (gameOver != null)
+        {
+            gameOver.SetActive(true);
+        }
+        Destroy(this.gameObject);
+    }
 
     void FixedUpdate()
     {
