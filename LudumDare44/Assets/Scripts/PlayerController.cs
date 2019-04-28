@@ -111,8 +111,8 @@ public class PlayerController : MonoBehaviour
         if (gameOver != null)
         {
             gameOver.SetActive(true);
-            this.GetComponent<GameMasterController>().Menu.SetActive(true);
-            this.GetComponent<GameMasterController>().startGame = false;
+            //this.GetComponent<GameMasterController>().Menu.SetActive(true);
+            //this.GetComponent<GameMasterController>().startGame = false;
 
         }
         Destroy(this.gameObject);

@@ -17,8 +17,8 @@ public class GameMasterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.Menu.SetActive(true);
-        this.startGame = false;
+        //this.Menu.SetActive(true);
+        //this.startGame = false;
     }
     // Update is called once per frame
     void Update()
@@ -28,10 +28,10 @@ public class GameMasterController : MonoBehaviour
             //GoalText.SetActive(true);
         }
 
-        if (Input.GetButtonDown("Start Game") )
-        {
-            startGame = true;
-        }
+        //if (Input.GetButtonDown("Start Game") )
+        //{
+        //    startGame = true;
+        //}
     }
 
 
