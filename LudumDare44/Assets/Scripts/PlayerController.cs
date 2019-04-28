@@ -31,12 +31,12 @@ public class PlayerController : MonoBehaviour
         {
             gameOver.SetActive(false);
         }
-        
+
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "WaterCube")
+        if (other.gameObject.name == "WaterCube")
         {
             playerHealth = 0;
         }
@@ -51,7 +51,10 @@ public class PlayerController : MonoBehaviour
     private void OnDestroy()
     {
         Instantiate(explosion, transform.position, Quaternion.identity);
-        gameOver.SetActive(true);
+        if (gameOver != null)
+        {
+            gameOver.SetActive(true);
+        }
     }
 
     void Update()
@@ -66,7 +69,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.forward = inputs;
         }
-            
+
         // Key Press Springen
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -90,7 +93,7 @@ public class PlayerController : MonoBehaviour
         // Laufen  allgemein
         if (Input.GetButtonDown("Dash"))
         {
-            Vector3 dashVelocity = Vector3.Scale(transform.forward, DashDistance * new Vector3((Mathf.Log( 1f / (Time.deltaTime * body.drag + 1)) / -Time.deltaTime), 0, (Mathf.Log( 1f / (Time.deltaTime * body.drag + 1 )) / -Time.deltaTime)));
+            Vector3 dashVelocity = Vector3.Scale(transform.forward, DashDistance * new Vector3((Mathf.Log(1f / (Time.deltaTime * body.drag + 1)) / -Time.deltaTime), 0, (Mathf.Log(1f / (Time.deltaTime * body.drag + 1)) / -Time.deltaTime)));
             body.AddForce(dashVelocity, ForceMode.VelocityChange);
         }
 
@@ -98,7 +101,7 @@ public class PlayerController : MonoBehaviour
         if (playerHealth <= 0 || this.transform.position.y < 0)
         {
             // Player Tot
-            Destroy(this.gameObject);          
+            Destroy(this.gameObject);
         }
 
     }

@@ -6,11 +6,9 @@ public class BotController : MonoBehaviour
 {
     public GameObject target;
 
-    public GameObject enemy;
+    private GameObject enemy;
     public GameObject explosion;
-
-    public AudioSource audioSource;
-
+    
     public bool isAngry;
 
     // Start is called before the first frame update
