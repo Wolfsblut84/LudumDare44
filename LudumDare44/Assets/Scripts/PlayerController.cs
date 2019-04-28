@@ -31,6 +31,14 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.name == "WaterCube")
+        {
+            playerHealth = 0;
+        }
+    }
+
 
     void OnCollisionStay()
     {

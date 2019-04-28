@@ -53,8 +53,6 @@ public class EnemyController : MonoBehaviour
                 //Action
                 Shoot(target.transform.position + new Vector3(Random.Range(-2, 2), Random.Range(-2, 2), Random.Range(-2, 2)));
                 timer = 0;
-
-
             }
         }
 
