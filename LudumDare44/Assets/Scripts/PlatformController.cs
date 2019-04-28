@@ -10,9 +10,7 @@ public class PlatformController : MonoBehaviour
     public Direction direction;
     public float MoveAmount;
     public float Speed;
-    public float TimeDelay;
 
-    private float timer;
     private Vector3 positionStart;
     private Vector3 positionEnd;
     private Vector3 moveDirection;
@@ -22,7 +20,6 @@ public class PlatformController : MonoBehaviour
     void Start()
     {
         positionStart = transform.position;
-
 
         switch (direction)
         {
@@ -41,7 +38,7 @@ public class PlatformController : MonoBehaviour
             default:
                 break;
         }
-        positionEnd += moveDirection * MoveAmount;
+        positionEnd = positionStart + moveDirection * MoveAmount;
 
 
     }
@@ -54,11 +51,9 @@ public class PlatformController : MonoBehaviour
 
     private void Move()
     {
-        timer += Time.deltaTime;
-
-        if(Vector3.Distance(positionStart, positionEnd) > MoveAmount && timer != 0)
+        if (Vector3.Distance(transform.position, positionEnd) > MoveAmount || Vector3.Distance(transform.position, positionStart) > MoveAmount)
         {
-            if(moveDirection == Vector3.up)
+            if (moveDirection == Vector3.up)
             {
                 moveDirection = Vector3.down;
             }
@@ -74,12 +69,9 @@ public class PlatformController : MonoBehaviour
             {
                 moveDirection = Vector3.left;
             }
-            timer = 0;
         }
 
-        if(timer < TimeDelay)
-        { 
-            transform.position += moveDirection * Mathf.Sin(Time.time * Speed);
-        }
+        transform.position += moveDirection * Time.deltaTime * Speed;
+
     }
 }
