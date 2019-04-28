@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 inputs = Vector3.zero;
     public bool isGrounded;
     public GameObject explosion;
+    
 
     public int playerHealth;
 
@@ -32,6 +33,8 @@ public class PlayerController : MonoBehaviour
         {
             gameOver.SetActive(false);
         }
+
+
     }
 
     void OnTriggerEnter(Collider other)

@@ -8,22 +8,30 @@ public class GameMasterController : MonoBehaviour
     public int BotCounter;
     public int BotsInGoal;
     public GameObject particle;
+    public GameObject Menu;
+    public bool startGame;
+
     //public GameObject GoalText;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        this.Menu.SetActive(true);
+        this.startGame = false;
     }
-
     // Update is called once per frame
     void Update()
     {
-
         if (BotsInGoal == 4)
         {
             //GoalText.SetActive(true);
         }
+
+        //if (Input.GetButtonDown("Start Game") && gameObject.Equals("Start"))
+        //{
+        //    startGame = true;
+        //}
     }
 
 
