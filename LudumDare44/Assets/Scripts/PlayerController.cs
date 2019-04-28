@@ -20,11 +20,13 @@ public class PlayerController : MonoBehaviour
 
     public GameObject gameOver;
 
-    
+    AudioSource[] audioSources;
+
 
     void Start()
     {
         body = GetComponent<Rigidbody>();
+        audioSources = GetComponents<AudioSource>();
         if (playerHealth >= 0 && this.transform.position.y > 0)
         {
             gameOver.SetActive(false);
@@ -70,6 +72,7 @@ public class PlayerController : MonoBehaviour
         {
             body.AddForce(Vector3.up * Mathf.Sqrt(JumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
             isGrounded = false;
+            audioSources[0].Play();
         }
 
         // Key press Rennen

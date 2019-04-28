@@ -8,7 +8,8 @@ public class ProjectileController : MonoBehaviour
 
     public GameObject Target;
     public Vector3 targetPosition;
-  
+    AudioSource[] audioSources;
+
 
     void Awake()
     {
@@ -19,20 +20,25 @@ public class ProjectileController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name != "Enemy Cylinder")
+        if(!other.gameObject.name.Contains("Enemy Cylinder"))
         {
             if (other.gameObject.name == "Player Capsule")
             {
                 Target.GetComponent<PlayerController>().playerHealth--;
+                audioSources[1].Play();
             }
-            Destroy(this.gameObject, 1);
+            else
+            {
+                audioSources[0].Play();
+            }
+            Destroy(this.gameObject, 0.2f);
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSources = GetComponents<AudioSource>();
     }
 
     // Update is called once per frame

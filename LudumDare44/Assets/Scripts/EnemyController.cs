@@ -22,6 +22,8 @@ public class EnemyController : MonoBehaviour
     // Lebenspunkte vom Gegner
     public int enemyLife;
 
+    AudioSource[] audioSources;
+
 
     private Rigidbody enemyRigidbody;
     private int movementValue;
@@ -33,6 +35,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         enemyRigidbody = GetComponent<Rigidbody>();
+        audioSources = GetComponents<AudioSource>();
     }
 
     // Update is called once per frame
@@ -123,6 +126,7 @@ public class EnemyController : MonoBehaviour
         if (projectileCount == 0)
         {
             Instantiate(projectile, transform.position, Quaternion.identity);
+            audioSources[0].Play();
         }
     }
 

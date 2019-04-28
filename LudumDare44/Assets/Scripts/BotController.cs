@@ -9,6 +9,8 @@ public class BotController : MonoBehaviour
     public GameObject enemy;
     public GameObject explosion;
 
+    public AudioSource audioSource;
+
     public bool isAngry;
 
     // Start is called before the first frame update
@@ -25,12 +27,14 @@ public class BotController : MonoBehaviour
     private bool isInGoal = false;
 
     public GameObject masterObject;
+    AudioSource[] audioSources;
 
 
 
     void Start()
     {
         moveSpeed = target.GetComponent<PlayerController>().Speed;
+        audioSources = GetComponents<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -66,6 +70,8 @@ public class BotController : MonoBehaviour
             masterObject.gameObject.GetComponent<GameMasterController>().BotCounter++;
             myCount = masterObject.gameObject.GetComponent<GameMasterController>().BotCounter;
 
+            audioSources[0].Play();
+
         }
         // Wenn Bots im Ziel sind
         else if (other.gameObject.name.Equals("Goal"))
@@ -82,6 +88,7 @@ public class BotController : MonoBehaviour
 
             //this.masterObject.gameObject.GetComponent<GameMasterController>().BotCounter --;
 
+            audioSources[1].Play();
 
             if (masterObject.gameObject.GetComponent<GameMasterController>().GetBotsInGoal() == 4)
             {
