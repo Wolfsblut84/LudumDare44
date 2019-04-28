@@ -17,10 +17,19 @@ public class PlayerController : MonoBehaviour
 
     public int playerHealth;
 
+    public GameObject gameOver;
+
+    
 
     void Start()
     {
         body = GetComponent<Rigidbody>();
+        if (playerHealth >= 0 && this.transform.position.y > 0)
+        {
+            gameOver.SetActive(false);
+         
+        }
+        
     }
 
 
@@ -68,6 +77,15 @@ public class PlayerController : MonoBehaviour
             Vector3 dashVelocity = Vector3.Scale(transform.forward, DashDistance * new Vector3((Mathf.Log( 1f / (Time.deltaTime * body.drag + 1)) / -Time.deltaTime), 0, (Mathf.Log( 1f / (Time.deltaTime * body.drag + 1 )) / -Time.deltaTime)));
             body.AddForce(dashVelocity, ForceMode.VelocityChange);
         }
+
+        // GameOver 
+        if (playerHealth <= 0 || this.transform.position.y < 0)
+        {
+            // Player Tot
+            gameOver.SetActive(true);
+          
+        }
+
     }
 
 
