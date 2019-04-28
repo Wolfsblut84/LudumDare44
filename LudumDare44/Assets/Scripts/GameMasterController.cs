@@ -6,15 +6,15 @@ public class GameMasterController : MonoBehaviour
 {
     // Attribute für Bots
     public int BotCounter;
-    private int BotsInGoal;
+    public int BotsInGoal;
     public GameObject particle;
-    public GameObject GoalText;
-    
+    //public GameObject GoalText;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        GoalText.SetActive(false);
+        //GoalText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class GameMasterController : MonoBehaviour
 
         if (BotsInGoal == 4)
         {
-            GoalText.SetActive(true);
+            //GoalText.SetActive(true);
         }
 
     }
@@ -35,6 +35,7 @@ public class GameMasterController : MonoBehaviour
         this.particle.SetActive(true);
         this.particle.gameObject.GetComponent<ParticleSystem>().Play();
         BotsInGoal += value;
+        BotCounter -= value;
     }
 
 

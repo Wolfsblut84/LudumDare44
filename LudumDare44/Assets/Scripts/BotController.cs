@@ -35,10 +35,10 @@ public class BotController : MonoBehaviour
         int botCounter = masterObject.gameObject.GetComponent<GameMasterController>().BotCounter;
 
         // Bots sammeln
-        if (other.gameObject.name.Contains("Player Capsule") && botCounter < 2 && isCollected == false)
+        if (other.gameObject.name.Contains("Player Capsule") && botCounter < 3 && isCollected == false)
         {
             this.isCollected = true;
-            masterObject.gameObject.GetComponent<GameMasterController>().BotCounter += 1;
+            masterObject.gameObject.GetComponent<GameMasterController>().BotCounter ++;
             myCount = masterObject.gameObject.GetComponent<GameMasterController>().BotCounter;
 
         }
@@ -47,21 +47,19 @@ public class BotController : MonoBehaviour
         else if (other.gameObject.name.Equals("Goal"))
         {
 
-            this.isInGoal = true;
-
             // Bot richtig ins Ziel schieben
             transform.position += Vector3.left * 2;
 
             // Damit man die wieder anpacken kann wenn 2 im Ziel sind
-            masterObject.gameObject.GetComponent<GameMasterController>().SetBotsInGoal(1);
-
-
-
-            //masterObject.gameObject.GetComponent<GameMasterController>().SetBotsInGoal(1);
-            Debug.Log(masterObject.gameObject.GetComponent<GameMasterController>().GetBotsInGoal());
-
-           
             this.isCollected = false;
+            this.isInGoal = true;
+
+            this.masterObject.gameObject.GetComponent<GameMasterController>().SetBotsInGoal(1);
+
+            //this.masterObject.gameObject.GetComponent<GameMasterController>().BotCounter --;
+            
+
+            
 
 
             if (masterObject.gameObject.GetComponent<GameMasterController>().GetBotsInGoal() == 4)
@@ -82,6 +80,14 @@ public class BotController : MonoBehaviour
             {
                 this.transform.position = Vector3.Lerp(this.transform.position, target.transform.position + new Vector3(0, 0.1f, 0), moveSpeed * Time.deltaTime);
             }
+
+            // Wenn Bot stehen bleibt abziehen
+            else if (Vector3.Distance(transform.position, target.transform.position) > maxDistance)
+            {
+
+                this.isCollected = false;
+                this.masterObject.gameObject.GetComponent<GameMasterController>().BotCounter -= 1;
+            }
         }
 
         // Bots Parken
@@ -90,6 +96,8 @@ public class BotController : MonoBehaviour
             this.isCollected = false;
             this.masterObject.gameObject.GetComponent<GameMasterController>().BotCounter = 0;
         }
+
+
 
     }
 }
