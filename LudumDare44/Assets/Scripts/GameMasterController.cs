@@ -8,6 +8,9 @@ public class GameMasterController : MonoBehaviour
     public int BotCounter;
     public int BotsInGoal;
     public GameObject particle;
+    public GameObject explosion;
+    public GameObject target;
+
     //public GameObject GoalText;
 
 
@@ -15,6 +18,7 @@ public class GameMasterController : MonoBehaviour
     void Start()
     {
         //GoalText.SetActive(false);
+        this.explosion.SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,6 +28,12 @@ public class GameMasterController : MonoBehaviour
         if (BotsInGoal == 4)
         {
             //GoalText.SetActive(true);
+        }
+
+        if (target.GetComponent<PlayerController>().playerHealth <= 0)
+        {
+            this.explosion.SetActive(true);
+            this.explosion.transform.position = new Vector3(target.transform.position.x -1,target.transform.position.y,target.transform.position.z);
         }
 
     }
