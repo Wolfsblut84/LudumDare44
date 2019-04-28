@@ -42,20 +42,23 @@ public class BotController : MonoBehaviour
             myCount = masterObject.gameObject.GetComponent<GameMasterController>().BotCounter;
 
             // Damit man die wieder anpacken kann wenn 2 im Ziel sind
-            botCounter -= botCounter ;
+            botCounter -= masterObject.gameObject.GetComponent<GameMasterController>().GetBotsInGoal();
         }
 
         // Wenn Bots im Ziel sind
         else if (other.gameObject.name.Equals("Goal"))
         {
-           
+            // Bot richtig ins Ziel schieben
+            transform.position += Vector3.left * 2;
+
             this.isInGoal = true;
+            
             masterObject.gameObject.GetComponent<GameMasterController>().BotCounter -= 1;
-            masterObject.gameObject.GetComponent<GameMasterController>().SetBotInGoal(1);
+            masterObject.gameObject.GetComponent<GameMasterController>().SetBotsInGoal(1);
             this.isCollected = false;
 
 
-            if (masterObject.gameObject.GetComponent<GameMasterController>().GetBotInGoal() == 4)
+            if (masterObject.gameObject.GetComponent<GameMasterController>().GetBotsInGoal() == 4)
             {
                
             }
@@ -75,7 +78,7 @@ public class BotController : MonoBehaviour
             }
         }
 
-        // Bots PArken
+        // Bots Parken
         if (Input.GetButtonDown("E"))
         {
             this.isCollected = false;

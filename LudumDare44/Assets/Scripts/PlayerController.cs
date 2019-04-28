@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
         if (playerHealth >= 0 && this.transform.position.y > 0)
         {
             gameOver.SetActive(false);
-         
         }
         
     }

@@ -9,6 +9,7 @@ public class GameMasterController : MonoBehaviour
     private int BotsInGoal;
     public GameObject particle;
 
+    
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class GameMasterController : MonoBehaviour
     }
 
 
-    public void SetBotInGoal(int value)
+    public void SetBotsInGoal(int value)
     {
 
         this.particle.SetActive(true);
@@ -31,7 +32,7 @@ public class GameMasterController : MonoBehaviour
     }
 
 
-    public int GetBotInGoal()
+    public int GetBotsInGoal()
     {
         return this.BotsInGoal;
     }
