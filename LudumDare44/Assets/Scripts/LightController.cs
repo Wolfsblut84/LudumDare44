@@ -17,8 +17,7 @@ public class LightController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = new Vector3(player.transform.position.x, this.transform.position.y ,player.transform.position.z +3);
-       
+        this.transform.position = new Vector3(player.transform.position.x, this.transform.position.y, player.transform.position.z);       
 
 
     }
