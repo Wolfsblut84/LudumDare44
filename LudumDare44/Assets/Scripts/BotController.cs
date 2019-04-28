@@ -8,7 +8,7 @@ public class BotController : MonoBehaviour
 
     private GameObject enemy;
     public GameObject explosion;
-    
+
     public bool isAngry;
 
     // Start is called before the first frame update
@@ -114,7 +114,7 @@ public class BotController : MonoBehaviour
             }
         }
 
-        if(enemy == null)
+        if (enemy == null)
         {
             isAngry = false;
         }
@@ -136,17 +136,20 @@ public class BotController : MonoBehaviour
             // Bots einsammeln
             if (isCollected && isInGoal == false)
             {
-                if (Vector3.Distance(transform.position, target.transform.position) >= minDistance + myCount * 0.8f && Vector3.Distance(transform.position, target.transform.position) <= maxDistance)
+                if (target != null)
                 {
-                    this.transform.position = Vector3.Lerp(this.transform.position, target.transform.position + new Vector3(0, 0.1f, 0), moveSpeed * Time.deltaTime);
-                }
+                    if (Vector3.Distance(transform.position, target.transform.position) >= minDistance + myCount * 0.8f && Vector3.Distance(transform.position, target.transform.position) <= maxDistance)
+                    {
+                        this.transform.position = Vector3.Lerp(this.transform.position, target.transform.position + new Vector3(0, 0.1f, 0), moveSpeed * Time.deltaTime);
+                    }
 
-                // Wenn Bot stehen bleibt abziehen
-                else if (Vector3.Distance(transform.position, target.transform.position) > maxDistance)
-                {
+                    // Wenn Bot stehen bleibt abziehen
+                    else if (Vector3.Distance(transform.position, target.transform.position) > maxDistance)
+                    {
 
-                    this.isCollected = false;
-                    this.masterObject.gameObject.GetComponent<GameMasterController>().BotCounter -= 1;
+                        this.isCollected = false;
+                        this.masterObject.gameObject.GetComponent<GameMasterController>().BotCounter -= 1;
+                    }
                 }
             }
 

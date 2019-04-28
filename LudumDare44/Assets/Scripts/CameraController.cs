@@ -7,12 +7,12 @@ public class CameraController : MonoBehaviour
     // Kamera Ziel festlegen
     public GameObject target;
 
-    
+
     // Start is called before the first frame update
 
     void Start()
     {
-       
+
     }
 
 
@@ -20,7 +20,10 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         //Camera.main.fieldOfView = 95;
-        this.transform.position = new Vector3(target.transform.position.x , target.transform.position.y + 8, -20f);
-        this.transform.LookAt(target.transform.position);
+        if (target != null)
+        {
+            this.transform.position = new Vector3(target.transform.position.x, target.transform.position.y + 8, -20f);
+            this.transform.LookAt(target.transform.position);
+        }
     }
 }

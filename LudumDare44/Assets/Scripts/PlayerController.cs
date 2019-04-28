@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
         {
             gameOver.SetActive(false);
         }
-
     }
 
     void OnTriggerEnter(Collider other)

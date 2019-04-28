@@ -47,16 +47,18 @@ public class EnemyController : MonoBehaviour
         {
             MakeMovementDecision(false);
         }
-
-        if (Vector3.Distance(transform.position, target.transform.position) <= 5)
+        if (target != null)
         {
-
-            timer += Time.deltaTime;
-            if (timer > waitingTime)
+            if (Vector3.Distance(transform.position, target.transform.position) <= 5)
             {
-                //Action
-                Shoot(target.transform.position + new Vector3(Random.Range(-2, 2), Random.Range(-2, 2), Random.Range(-2, 2)));
-                timer = 0;
+
+                timer += Time.deltaTime;
+                if (timer > waitingTime)
+                {
+                    //Action
+                    Shoot(target.transform.position + new Vector3(Random.Range(-2, 2), Random.Range(-2, 2), Random.Range(-2, 2)));
+                    timer = 0;
+                }
             }
         }
 
