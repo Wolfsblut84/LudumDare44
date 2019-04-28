@@ -8,17 +8,12 @@ public class GameMasterController : MonoBehaviour
     public int BotCounter;
     public int BotsInGoal;
     public GameObject particle;
-    public GameObject explosion;
-    public GameObject target;
-
     //public GameObject GoalText;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        //GoalText.SetActive(false);
-        this.explosion.SetActive(false);
     }
 
     // Update is called once per frame
@@ -29,14 +24,6 @@ public class GameMasterController : MonoBehaviour
         {
             //GoalText.SetActive(true);
         }
-
-        if (target.GetComponent<EnemyController>() == null)
-        {
-            this.explosion.SetActive(true);
-            this.explosion.gameObject.GetComponent<ParticleSystem>().Play();
-            this.explosion.transform.position = new Vector3(target.transform.position.x -1,target.transform.position.y,target.transform.position.z);
-        }
-
     }
 
 

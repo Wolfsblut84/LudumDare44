@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     public int projectileCount = 0;
 
     public GameObject target;
+    public GameObject explosion;
 
     // Punkte die dem Spieler abgezogen werden
     public int playerDamage;
@@ -56,6 +57,11 @@ public class EnemyController : MonoBehaviour
             }
         }
 
+    }
+
+    private void OnDestroy()
+    {
+        Instantiate(explosion, transform.position, Quaternion.identity);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -120,8 +126,4 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void Explode()
-    {
-
-    }
 }
