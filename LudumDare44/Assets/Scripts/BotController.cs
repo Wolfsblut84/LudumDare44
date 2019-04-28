@@ -7,6 +7,7 @@ public class BotController : MonoBehaviour
     public GameObject target;
 
     public GameObject enemy;
+    public GameObject explosion;
 
     public bool isAngry;
 
@@ -90,6 +91,10 @@ public class BotController : MonoBehaviour
 
     }
 
+    private void OnDestroy()
+    {
+        Instantiate(explosion, transform.position, Quaternion.identity);
+    }
 
     private void SetAngry()
     {

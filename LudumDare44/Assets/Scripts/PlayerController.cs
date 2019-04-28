@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody body;
     private Vector3 inputs = Vector3.zero;
     public bool isGrounded;
+    public GameObject explosion;
 
     public int playerHealth;
 
@@ -45,6 +46,11 @@ public class PlayerController : MonoBehaviour
         isGrounded = true;
     }
 
+    private void OnDestroy()
+    {
+        Instantiate(explosion, transform.position, Quaternion.identity);
+        gameOver.SetActive(true);
+    }
 
     void Update()
     {
@@ -89,8 +95,7 @@ public class PlayerController : MonoBehaviour
         if (playerHealth <= 0 || this.transform.position.y < 0)
         {
             // Player Tot
-            gameOver.SetActive(true);
-          
+            Destroy(this.gameObject);          
         }
 
     }
