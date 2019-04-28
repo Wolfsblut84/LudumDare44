@@ -7354,6 +7354,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 383222311}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &405738629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3253358928381877026, guid: ede6208d75105454b921e53204ef90e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4855774021903079650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &405738630 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3253358928381877025, guid: ede6208d75105454b921e53204ef90e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4855774021903079650}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &422997494 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6511908294186164767, guid: d9567fc489997be4a9848c6eaa065c57,
@@ -11687,12 +11699,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 715603053}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &725024704 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4855774021518403362, guid: ede6208d75105454b921e53204ef90e6,
-    type: 3}
-  m_PrefabInstance: {fileID: 4855774021903079650}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &728885236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13212,7 +13218,8 @@ MonoBehaviour:
   BotCounter: 0
   BotsInGoal: 0
   particle: {fileID: 2108944091}
-  explosion: {fileID: 1090020456}
+  explosion: {fileID: 405738629}
+  target: {fileID: 1573130057}
 --- !u!4 &838335728
 Transform:
   m_ObjectHideFlags: 0
@@ -15212,12 +15219,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1090020456 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4855774020842437770, guid: ede6208d75105454b921e53204ef90e6,
-    type: 3}
-  m_PrefabInstance: {fileID: 4855774021903079650}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1130146240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25947,7 +25948,7 @@ Transform:
   m_Children:
   - {fileID: 2084927860}
   - {fileID: 447488670}
-  - {fileID: 725024704}
+  - {fileID: 405738630}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

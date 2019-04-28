@@ -30,9 +30,10 @@ public class GameMasterController : MonoBehaviour
             //GoalText.SetActive(true);
         }
 
-        if (target.GetComponent<PlayerController>().playerHealth <= 0)
+        if (target.GetComponent<EnemyController>() == null)
         {
             this.explosion.SetActive(true);
+            this.explosion.gameObject.GetComponent<ParticleSystem>().Play();
             this.explosion.transform.position = new Vector3(target.transform.position.x -1,target.transform.position.y,target.transform.position.z);
         }
 
