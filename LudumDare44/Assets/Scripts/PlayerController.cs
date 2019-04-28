@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 inputs = Vector3.zero;
     public bool isGrounded;
     public GameObject explosion;
+    
 
     public int playerHealth;
 
@@ -32,6 +33,8 @@ public class PlayerController : MonoBehaviour
         {
             gameOver.SetActive(false);
         }
+
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -97,6 +100,7 @@ public class PlayerController : MonoBehaviour
         {
             // Player Tot
             Explode();
+            
         }
 
     }
@@ -107,6 +111,9 @@ public class PlayerController : MonoBehaviour
         if (gameOver != null)
         {
             gameOver.SetActive(true);
+            this.GetComponent<GameMasterController>().Menu.SetActive(true);
+            this.GetComponent<GameMasterController>().startGame = false;
+
         }
         Destroy(this.gameObject);
     }
