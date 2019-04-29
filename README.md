@@ -6,15 +6,27 @@
 
 This project was created for [Ludum Dare 44](https://ldjam.com/events/ludum-dare/44/)
 
-The Theme was: ** 
+The Theme was: *Your life is currency* 
 
 Let's play!	
 
 ### Description
-The game is a game.
+You are a white Capsule and have to rescue orange Bots. 
+Beware of the red enemies and bring your bot friends to goal.
+But don't let yourself too much time! There is a danger from below.
 
 ### Controls
-To control the game use WASD or UP, DOWN, LEFT, RIGHT.
+
+// Controls (Keyboard)
+W, Up => Move forward
+S, Down => Move backward
+D, Right => Move right
+A, Left => Move left
+Space => Jump
+E => BotParking 
+Q => Attack Enemy
+ESC => Pause or Menu
+
 
 ---
 
@@ -37,5 +49,5 @@ To control the game use WASD or UP, DOWN, LEFT, RIGHT.
 
 ### developed by the Team
 ```
-Jerry, Jessica, Sebastian, Mario, Manuel and Tino
+Jessica, Sebastian, Mario and Tino
 ```
