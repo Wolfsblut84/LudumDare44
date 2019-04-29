@@ -107,7 +107,7 @@ public class BotController : MonoBehaviour
 
         foreach (var item in colliders)
         {
-            if (item.gameObject.name == "Enemy Cylinder")
+            if (item.gameObject.name.Contains("Enemy Cylinder"))
             {
                 enemy = item.gameObject;
                 break;

@@ -14,9 +14,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask Ground;
     private Rigidbody body;
     private Vector3 inputs = Vector3.zero;
-    public bool isGrounded;
+    public int isGrounded;
     public GameObject explosion;
-    
+
 
     public int playerHealth;
 
@@ -33,8 +33,6 @@ public class PlayerController : MonoBehaviour
         {
             gameOver.SetActive(false);
         }
-
-
     }
 
     void OnTriggerEnter(Collider other)
@@ -43,12 +41,23 @@ public class PlayerController : MonoBehaviour
         {
             playerHealth = 0;
         }
+
+        isGrounded = 0;
+        
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name.Contains("Enemy Cylinder"))
+        {
+            playerHealth -= 1;
+        }
     }
 
 
-    void OnCollisionStay()
+    private void OnCollisionStay()
     {
-        isGrounded = true;
     }
 
     private void OnDestroy()
@@ -69,10 +78,10 @@ public class PlayerController : MonoBehaviour
         }
 
         // Key Press Springen
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded < 2)
         {
             body.AddForce(Vector3.up * Mathf.Sqrt(JumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
-            isGrounded = false;
+            isGrounded++;
             audioSources[0].Play();
         }
 
@@ -100,7 +109,7 @@ public class PlayerController : MonoBehaviour
         {
             // Player Tot
             Explode();
-            
+
         }
 
     }
