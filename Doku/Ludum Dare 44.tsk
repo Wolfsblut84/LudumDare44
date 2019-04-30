@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?taskcoach release="1.4.5" tskversion="37"?>
+
+<tasks>
+<task completiondate="2019-04-26 20:59:42.953000" creationDateTime="2019-04-26 09:51:10.938000" duedate="2019-04-26 21:00:00" id="0ecd0b9e-67f8-11e9-b9f1-5cf370871498" modificationDateTime="2019-04-26 20:59:42.953000" percentageComplete="100" plannedstartdate="2019-04-26 20:31:00" status="1" subject="Github und Ludum Dare Projekt">
+<description>
+Können alle auf Github und Ludum Dare zugreifen?
+</description>
+</task>
+<task completiondate="2019-04-30 15:26:04.297000" creationDateTime="2019-04-26 10:05:38.553000" duedate="2019-04-29 18:00:00" id="13f0968f-67fa-11e9-964a-5cf370871498" modificationDateTime="2019-04-30 15:26:04.297000" percentageComplete="100" plannedstartdate="2019-04-29 08:00:00" status="1" subject="Release Master">
+<description>
+Erstellen der Release Version
+Säubern des Projektes
+
+</description>
+</task>
+<task completiondate="2019-04-27 23:34:37.530000" creationDateTime="2019-04-26 10:12:58.345000" duedate="2019-04-27 14:00:00" id="1a13858f-67fb-11e9-b888-5cf370871498" modificationDateTime="2019-04-27 23:34:37.530000" percentageComplete="100" plannedstartdate="2019-04-27 10:01:00" status="1" subject="Pre Alpha" />
+<task completiondate="2019-04-30 15:26:02.859000" creationDateTime="2019-04-26 10:06:16.943000" duedate="2019-04-30 03:00:00" id="2ad26ff0-67fa-11e9-94e4-5cf370871498" modificationDateTime="2019-04-30 15:26:02.859000" percentageComplete="100" plannedstartdate="2019-04-29 18:00:00" prerequisites="3bf488f0-67f9-11e9-b300-5cf370871498" status="1" subject="Deploy">
+<description>
+Veröffentlichen des Spiels
+Screenshots / GIF
+Beschreibungstext
+Anleitung
+etc.
+
+</description>
+</task>
+<task completiondate="2019-04-26 21:49:26.140000" creationDateTime="2019-04-26 09:52:18.819000" duedate="2019-04-26 21:30:00" id="3742dd30-67f8-11e9-94d1-5cf370871498" modificationDateTime="2019-04-26 21:49:26.140000" percentageComplete="100" plannedstartdate="2019-04-26 21:01:00" status="1" subject="Team Bildung">
+<description>
+Wer macht was?
+Wer arbeitet mit wem?
+Wie teilt man die Aufgaben auf?
+Team Name
+
+</description>
+</task>
+<task completiondate="2019-04-27 23:34:35.963000" creationDateTime="2019-04-26 09:59:36.191000" duedate="2019-04-27 10:00:00" id="3bf488f0-67f9-11e9-b300-5cf370871498" modificationDateTime="2019-04-27 23:34:35.963000" percentageComplete="100" plannedstartdate="2019-04-27 08:00:00" status="1" subject="Thema">
+<description>
+Um 3 Uhr MEZ ist das Thema bekannt.
+Projekt an das Thema anpassen.
+</description>
+</task>
+<task completiondate="2019-04-27 23:34:39.761000" creationDateTime="2019-04-26 10:01:07.022000" duedate="2019-04-27 23:59:59.999999" id="72183ee1-67f9-11e9-886e-5cf370871498" modificationDateTime="2019-04-27 23:34:39.761000" percentageComplete="100" plannedstartdate="2019-04-27 14:01:00" status="1" subject="Alpha">
+<description>
+Entwicklung des Spiels
+Implementieren der Features
+</description>
+</task>
+<task completiondate="2019-04-26 21:49:36.256000" creationDateTime="2019-04-26 09:54:42.685000" duedate="2019-04-26 22:30:00" id="8d0312cf-67f8-11e9-a082-5cf370871498" modificationDateTime="2019-04-26 21:49:36.256000" percentageComplete="100" plannedstartdate="2019-04-26 21:31:00" status="1" subject="Entwurf und Planung">
+<description>
+Brainstorm und Ideenfindung
+Whiteboard?
+Game Design Document (minimal)?
+Backup Planung
+Code Struktur?
+Kommentare
+Wie geht man mit Problemen um? Wer ist Ansprechpartner?
+Änderungen?
+
+Zeitplanung (Wer hat wann Zeit?)
+Schlafen?
+Essen und Trinken?
+</description>
+</task>
+<task completiondate="2019-04-26 20:30:14.291000" creationDateTime="2019-04-26 09:48:59.038000" duedate="2019-04-26 20:30:00" id="c02eb3e1-67f7-11e9-8116-5cf370871498" modificationDateTime="2019-04-26 20:30:14.291000" percentageComplete="100" plannedstartdate="2019-04-26 20:00:00" status="1" subject="Resourcen Check">
+<description>
+Visual Studio
+Unity
+Blender
+Bildbearbeitung (Gimp, PS, ...)
+</description>
+</task>
+<task completiondate="2019-04-27 23:34:34.219000" creationDateTime="2019-04-26 09:57:41.390000" duedate="2019-04-26 23:59:59.999999" id="f7874ae1-67f8-11e9-bdff-5cf370871498" modificationDateTime="2019-04-27 23:34:34.219000" percentageComplete="100" plannedstartdate="2019-04-26 22:31:00" prerequisites="0ecd0b9e-67f8-11e9-b9f1-5cf370871498 3742dd30-67f8-11e9-94d1-5cf370871498 8d0312cf-67f8-11e9-a082-5cf370871498 c02eb3e1-67f7-11e9-8116-5cf370871498" status="1" subject="Prototyping">
+<description>
+Anlegen der Projektordner
+Dummy Dateien
+Schneller Prototyp
+</description>
+</task>
+<task completiondate="2019-04-28 22:40:56.474000" creationDateTime="2019-04-26 10:04:54.543000" duedate="2019-04-28 23:59:59.999999" id="f9b531f0-67f9-11e9-ba5b-5cf370871498" modificationDateTime="2019-04-28 22:40:56.474000" percentageComplete="100" plannedstartdate="2019-04-28 08:00:00" status="1" subject="Beta">
+<description>
+Finalisieren des Projektes
+Polishing und Debugging
+Balancing
+</description>
+</task>
+<syncmlconfig>
+<TaskCoach-0000016a589e27b0a06f22df00c000a80000006c>
+<spds>
+<sources>
+<TaskCoach-0000016a589e27b0a06f22df00c000a80000006c.Tasks />
+<TaskCoach-0000016a589e27b0a06f22df00c000a80000006c.Notes />
+</sources>
+<syncml>
+<Auth />
+<Conn />
+</syncml>
+</spds>
+</TaskCoach-0000016a589e27b0a06f22df00c000a80000006c>
+</syncmlconfig>
+<guid>
+0000016a589e27b0a06f22df00c000a80000006c
+</guid>
+</tasks>

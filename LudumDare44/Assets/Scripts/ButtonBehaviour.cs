@@ -5,10 +5,10 @@ public class ButtonBehaviour : MonoBehaviour {
 
 	private Animator animator;
 
-    public Material redMaterial;
-    public Material greenMaterial;
+	public Material redMaterial;
+	public Material greenMaterial;
 
-    public bool isActivated;
+	public bool isActivated;
 
 	void Awake()
 	{
@@ -29,7 +29,7 @@ public class ButtonBehaviour : MonoBehaviour {
 		if (col.gameObject.name == "Player Capsule" || col.gameObject.name.Contains("Bot")) 
 		{
 			animator.SetTrigger("isPressed");
-            this.gameObject.GetComponent<MeshRenderer>().material = greenMaterial;
+			this.gameObject.GetComponent<MeshRenderer>().material = greenMaterial;
 		}
 	}
 
@@ -38,18 +38,18 @@ public class ButtonBehaviour : MonoBehaviour {
 		foreach (ContactPoint contact in col.contacts) {
 						Debug.DrawRay (contact.point, contact.normal * 10, Color.white);
 				}
-        isActivated = true;
+		isActivated = true;
 	}
 
 	void OnCollisionExit (Collision col) {
 		
 		if (col.gameObject.name == "Player Capsule" || col.gameObject.name.Contains("Bot"))
-        {
+		{
 			//animator.SetTrigger("isPressed");
 			animator.SetBool ("isPressed", false);
-            this.gameObject.GetComponent<MeshRenderer>().material = redMaterial;
-        }
-        isActivated = false;
+			this.gameObject.GetComponent<MeshRenderer>().material = redMaterial;
+		}
+		isActivated = false;
 	}
 
 }
