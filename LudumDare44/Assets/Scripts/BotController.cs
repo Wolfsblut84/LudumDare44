@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class BotController : MonoBehaviour
 {
     public GameObject target;
 
     private GameObject enemy;
     public GameObject explosion;
+    public GameObject botLost;
 
     public bool isAngry;
 
@@ -16,6 +17,12 @@ public class BotController : MonoBehaviour
     private float minDistance = 1.6f;
     private float maxDistance = 5f;
     private float moveSpeed = 8f;
+
+    private static float displayTimeBotLost = 3f;
+    private float displayTimer = displayTimeBotLost;
+
+
+
 
     private List<GameObject> colliders = new List<GameObject>();
 
@@ -33,6 +40,7 @@ public class BotController : MonoBehaviour
     {
         moveSpeed = target.GetComponent<PlayerController>().Speed;
         audioSources = GetComponents<AudioSource>();
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -125,6 +133,12 @@ public class BotController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        this.displayTimer += Time.deltaTime;
+        if (displayTimer > displayTimeBotLost && botLost.activeSelf == true)
+        {
+            botLost.SetActive(false);
+        }
+
 
         if (isAngry && enemy != null)
         {
@@ -143,12 +157,20 @@ public class BotController : MonoBehaviour
                         this.transform.position = Vector3.Lerp(this.transform.position, target.transform.position + new Vector3(0, 0.1f, 0), moveSpeed * Time.deltaTime);
                     }
 
+                    // Todo: Herausfinden wo der Fehler liegt, wird scheinbar nicht ausgeführt
                     // Wenn Bot stehen bleibt abziehen
-                    else if (Vector3.Distance(transform.position, target.transform.position) > maxDistance )
+                    else if (Vector3.Distance(transform.position, target.transform.position) > maxDistance)
                     {
 
                         this.isCollected = false;
                         this.masterObject.gameObject.GetComponent<GameMasterController>().BotCounter -= 1;
+
+                        if (this.botLost.activeSelf == false && target.name == "Player Capsule")
+                        {
+                            displayTimer = 0f;
+                            this.botLost.SetActive(true);
+                        }                       
+
                     }
                 }
             }
@@ -158,6 +180,14 @@ public class BotController : MonoBehaviour
             {
                 this.isCollected = false;
                 this.masterObject.gameObject.GetComponent<GameMasterController>().BotCounter = 0;
+
+
+                if (this.botLost.activeSelf == false)
+                {
+                    displayTimer = 0f;
+                    this.botLost.SetActive(true);
+                }
+
             }
 
             if (Input.GetButtonDown("Q Attack") && isCollected)

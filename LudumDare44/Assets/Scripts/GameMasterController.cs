@@ -29,7 +29,7 @@ public class GameMasterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        botsText.text = "Bots saved: " + BotsInGoal + " (" + BotsCount4Win + ")";
     }
 
 
@@ -95,7 +95,7 @@ public class GameMasterController : MonoBehaviour
         BotsInGoal += value;
         BotCounter -= value;
 
-        botsText.text = "Bots saved: " + BotsInGoal;
+        botsText.text = "Bots saved: " + BotsInGoal + " (" + BotsCount4Win + ")";
     }
 
 
